@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Typography, TextField, Button, Grid, Box } from '@mui/material';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -22,15 +23,45 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <Box mt={4}>
+      <Typography variant="h4" align="center" gutterBottom>Register</Typography>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} />
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} />
-        <button type="submit">Register</button>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              label="Username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              label="Password"
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button type="submit" variant="contained" color="primary">Register</Button>
+          </Grid>
+        </Grid>
       </form>
-    </div>
+    </Box>
   );
 }
 

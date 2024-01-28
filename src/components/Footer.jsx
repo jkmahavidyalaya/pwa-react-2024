@@ -1,10 +1,16 @@
+// Footer.jsx
 import React from 'react';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 function Footer() {
   return (
-    <footer>
-      <p>&copy; 2024 Student App</p>
-    </footer>
+    <AppBar position="absolute" sx={{ top: 'auto', bottom: 0 }}>
+      <Toolbar>
+        <Typography variant="body1" align="center" sx={{ width: '100%' }}>
+          &copy; {new Date().getFullYear()} Student
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 }
 
