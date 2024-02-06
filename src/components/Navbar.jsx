@@ -1,10 +1,8 @@
 import React from 'react';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import { Home as HomeIcon, AccountCircle as AccountCircleIcon, Description as DescriptionIcon, AssignmentTurnedIn as AssignmentTurnedInIcon, ExitToApp as ExitToAppIcon, Info as InfoIcon, ContactSupport as ContactSupportIcon } from '@mui/icons-material';
+import Footer from './Footer';
 
 function Navbar({ isOpen, loggedIn, onLogout, onClose }) {
   return (
@@ -17,6 +15,36 @@ function Navbar({ isOpen, loggedIn, onLogout, onClose }) {
             </ListItemIcon>
             <ListItemText primary={<Typography variant="body1">Home</Typography>} />
           </ListItem>
+          <ListItem button component={Link} to="/profile" onClick={onClose}>
+            <ListItemIcon>
+              <AccountCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary={<Typography variant="body1">Profile</Typography>} />
+          </ListItem>
+          <ListItem button component={Link} to="/application-form" onClick={onClose}>
+            <ListItemIcon>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <ListItemText primary={<Typography variant="body1">Application Form</Typography>} />
+          </ListItem>
+          <ListItem button component={Link} to="/application-status" onClick={onClose}>
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText primary={<Typography variant="body1">Application Status</Typography>} />
+          </ListItem>
+          <ListItem button component={Link} to="/about" onClick={onClose}>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
+            <ListItemText primary={<Typography variant="body1">About</Typography>} />
+          </ListItem>
+          <ListItem button component={Link} to="/contact" onClick={onClose}>
+            <ListItemIcon>
+              <ContactSupportIcon />
+            </ListItemIcon>
+            <ListItemText primary={<Typography variant="body1">Contact</Typography>} />
+          </ListItem>
         </List>
         <Divider />
         <List>
@@ -28,20 +56,12 @@ function Navbar({ isOpen, loggedIn, onLogout, onClose }) {
               <ListItemText primary={<Typography variant="body1">Logout</Typography>} />
             </ListItem>
           ) : (
-            <>
-              <ListItem button component={Link} to="/login" onClick={onClose}>
-                <ListItemIcon>
-                  <ExitToAppIcon />
-                </ListItemIcon>
-                <ListItemText primary={<Typography variant="body1">Login</Typography>} />
-              </ListItem>
-              <ListItem button component={Link} to="/register" onClick={onClose}>
-                <ListItemIcon>
-                  <PersonAddIcon />
-                </ListItemIcon>
-                <ListItemText primary={<Typography variant="body1">Register</Typography>} />
-              </ListItem>
-            </>
+            <ListItem button component={Link} to="/login" onClick={onClose}>
+              <ListItemIcon>
+                <ExitToAppIcon />
+              </ListItemIcon>
+              <ListItemText primary={<Typography variant="body1">Login</Typography>} />
+            </ListItem>
           )}
         </List>
         <Footer />

@@ -2,6 +2,11 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { CssBaseline, Container, CircularProgress } from '@mui/material';
 import Header from './components/Header';
+import Profile from './pages/Profile';
+import ApplicationForm from './pages/ApplicationForm';
+import ApplicationStatus from './pages/ApplicationStatus';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const Register = React.lazy(() => import('./pages/Register'));
 const Login = React.lazy(() => import('./pages/Login'));
@@ -41,6 +46,11 @@ function App() {
             <Route path="/register" element={loggedIn ? <Navigate to="/" /> : <Register />} />
             <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <Login onLogin={handleLogin} />} />
             <Route path="/" element={!loggedIn ? <Navigate to="/login" /> : <Home user={user} />} />
+            <Route path="/profile" element={!loggedIn ? <Navigate to="/login" /> : <Profile user={user} />} />
+            <Route path="/application-form" element={!loggedIn ? <Navigate to="/login" /> : <ApplicationForm user={user} />} />
+            <Route path="/application-status" element={!loggedIn ? <Navigate to="/login" /> : <ApplicationStatus user={user} />} />
+            <Route path="/about" element={!loggedIn ? <Navigate to="/login" /> : <About user={user} />} />
+            <Route path="/contact" element={!loggedIn ? <Navigate to="/login" /> : <Contact user={user} />} />
           </Routes>
         </Suspense>
       </Container>
