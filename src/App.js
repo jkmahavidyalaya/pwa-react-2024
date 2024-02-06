@@ -49,8 +49,8 @@ function App() {
             <Route path="/profile" element={!loggedIn ? <Navigate to="/login" /> : <Profile user={user} />} />
             <Route path="/application-form" element={!loggedIn ? <Navigate to="/login" /> : <ApplicationForm user={user} />} />
             <Route path="/application-status" element={!loggedIn ? <Navigate to="/login" /> : <ApplicationStatus user={user} />} />
-            <Route path="/about" element={!loggedIn ? <Navigate to="/login" /> : <About user={user} />} />
-            <Route path="/contact" element={!loggedIn ? <Navigate to="/login" /> : <Contact user={user} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
       </Container>
